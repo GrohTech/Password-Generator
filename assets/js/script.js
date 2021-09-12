@@ -21,7 +21,7 @@ function characterTypes() {
     var lowercase = "abcdefghijklmnopqrstuvwxyz";
     var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     var numeric = "0123456789";
-    var special = "'!#$%&'()*+,-./:;<=>?@";
+    var special = "!#$%&'()*+,-./:;<=>?@";
 
   if (window.confirm("Would you like to include lowercase characters in your password? Password could include 'abcdefghijklmnopqrstuvwxyz'.")) {
     character += lowercase
@@ -35,7 +35,7 @@ function characterTypes() {
     character += numeric
   };
 
-  if (window.confirm("Would you like to include special characters in your password? Password could include '0123456789'.")) {
+  if (window.confirm("Would you like to include special characters in your password? Password could include '!#$%&'()*+,-./:;<=>?@'.")) {
     character += special
   };
 
@@ -48,12 +48,10 @@ function generatePassword() {
       var characterChoice = characterTypes();
 
       var password = "";
-    // randomly generate password characters
-    for (var i = 0;  i <= characterCount; i++) {
-      password += characterChoice.charAt(Math.floor(Math.random() * Math.floor(characterChoice.length - 1)));
-  }
-    // will return password randomly created
-    return password;
+      for (var i=0, n = characterChoice.length; i < characterCount; ++i) {
+        password += characterChoice.charAt(Math.floor(Math.random() * n));
+      } 
+      return password;
 }
 
 
@@ -72,39 +70,3 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-
-
-
-
-// if (window.confirm("Do you really want to leave?")) {
-//  window.open("exit.html", "Thanks for Visiting!");
-//}
-/*
-  var lowercaseYes = window.confirm("Would you like to include lowercase characters in your password? Password could include 'abcdefghijklmnopqrstuvwxyz'.");
-  var uppercaseYes = window.confirm("Would you like to include uppercase characters in your password? Password could include 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.");
-  var numericYes = window.confirm("Would you like to include numeric characters in your password? Password could include '0123456789'.");
-  var specialYes = window.confirm("Would you like to include special characters in your password? Password could include '0123456789'.");
-
-  // possible password values
-  var lowercase = "abcdefghijklmnopqrstuvwxyz";
-  var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  var numeric = "0123456789";
-  var special = "'!#$%&'()*+,-./:;<=>?@";
-
-  var character = "";
-
-  if (lowercaseYes) {
-    character += lowercase
-  }
-  if (uppercaseYes) {
-    character += uppercase
-  }
-  if (numericYes) {
-    character += numeric
-  }
-  if (specialYes){
-    character += special
-  }
-  */
-  //generatePassword()
