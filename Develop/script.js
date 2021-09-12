@@ -14,12 +14,13 @@
       // Correct response from user
     else {
         characterLength = lengthSelected;
-        window.alert("Great! Let's move on to the other questions.")
-      return characterLength
+        window.alert("Great! Let's move on to the other questions.");
     }
+    return characterLength;
   }
 
 function characterTypes() {
+  window.alert("Please use the checkboxes below to select which characters to include in your password.");
 
   // possible password values
   var lowercase = "abcdefghijklmnopqrstuvwxyz";
@@ -31,7 +32,7 @@ function characterTypes() {
   var uppercaseChecked = document.querySelector("#uppercase")
   var numericChecked = document.querySelector("#numeric")
   var specialChecked = document.querySelector("#special")
-  var character = ""
+  var character = "";
 
   if (lowercaseChecked.checked) {
     character += lowercase
@@ -45,20 +46,20 @@ function characterTypes() {
   if (specialChecked.checked){
     character += special
   }
-  generatePassword()
-  return character
+  return characterTypes
+  //generatePassword()
 }
 
 
 
 function generatePassword() {
-      var characterLength = characterLength()
-      var characterTypes = characterTypes()
+      var characterCount = characterLength();
+      var characterChoice = characterTypes();
 
       var password = "";
     // randomly generate password characters
-    for (var i = 0;  i <= characterLength; i++) {
-      password += characterTypes.charAt(Math.floor(Math.random() * (characterTypes.length - 1)));
+    for (var i = 0;  i <= characterCount; i++) {
+      password += characterChoice.charAt(Math.floor(Math.random() * (characterChoice.length - 1)));
   }
     // will return password randomly created
     return password;
