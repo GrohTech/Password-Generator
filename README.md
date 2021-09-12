@@ -24,7 +24,7 @@ Password generator is JavaScript-heavy project with the main goal of producing s
 3. Copy generated password to clipboard
 4. Refresh screen to start the process over
 
-**View the application, here:** [Password Generator](https://grohtech.github.io/horiseon/ "Password Generator")
+**View the application, here:** [Password Generator](https://grohtech.github.io/Password-Generator/ "Password Generator")
 
 **View website screenshots, here:**  
 ![Password Generator - 1](./assets/images/pw-gen-1.png "Password Generator - 1")
