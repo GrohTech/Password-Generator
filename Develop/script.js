@@ -1,73 +1,69 @@
 // Assignment code here
 
-var generatePassword = function() {
+
+
+
   // Character length between 8 and 128 characters
-  var characterLength = function(lengthSelected) {
+  function characterLength() {
     var lengthSelected = window.prompt("How long would you like your password to be? Please choose a character length between 8 and 128.");
-    while (lengthSelected < 8 && lengthSelected > 128) {
+
+    // Incorrect response from user
+    if (lengthSelected < 8 || lengthSelected > 128) {
       var characterLength = window.prompt("Character length must be between 8 and 128.");
-    
-      if (length >= 8 && length <= 128){
+    }
+      // Correct response from user
+    else {
         characterLength = lengthSelected;
-        console.log(lengthSelected)
-        break;
-      }
+        window.alert("Great! Let's move on to the other questions.")
+      return characterLength
     }
   }
-};
 
-var characterTypes = function () {
-    var typesPrompt = window.prompt(
-      "Would you like to include LOWERCASE characters, UPPERCASE characters, NUMERIC characters, or SPECIAL characters? Please select one option from the following: 'LOWERCASE', 'UPPERCASE', 'NUMERIC', or 'SPECIAL'."
-    );
+function characterTypes() {
 
-    switch (typesPrompt) {
-      case 'LOWERCASE':
-      case 'lowercase':
-        characterTypes.lowercase();
-        break;
+  // possible password values
+  var lowercase = "abcdefghijklmnopqrstuvwxyz";
+  var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var numeric = "0123456789";
+  var special = "'!#$%&'()*+,-./:;<=>?@";
 
-      case 'UPPERCASE':
-      case 'uppercase':
-        characterTypes.uppercase();
-        break;
+  var lowercaseChecked = document.querySelector("#lowercase")
+  var uppercaseChecked = document.querySelector("#uppercase")
+  var numericChecked = document.querySelector("#numeric")
+  var specialChecked = document.querySelector("#special")
+  var character = ""
 
-      case 'NUMERIC':
-      case 'numeric':
-        characterTypes.numeric();
-        break;
-
-      case 'SPECIAL':
-      case 'special':
-        characterTypes.special();
-        break;
-
-      default:
-        window.alert('You did not pick a valid option. Try again.');
-
-      typesPrompt();
-      break;
-    }
+  if (lowercaseChecked.checked) {
+    character += lowercase
+  }
+  if (uppercaseChecked.checked) {
+    character += uppercase
+  }
+  if (numericChecked.checked) {
+    character += numeric
+  }
+  if (specialChecked.checked){
+    character += special
+  }
+  generatePassword()
+  return character
 }
 
 
-generatePassword(characterLength, characterTypes)
-  return characterLength + characterTypes;
 
-  // Character types options to include or exclude (lowercase, uppercase, numeric, special characters)
+function generatePassword() {
+      var characterLength = characterLength()
+      var characterTypes = characterTypes()
 
-  //var characterTypes =
+      var password = "";
+    // randomly generate password characters
+    for (var i = 0;  i <= characterLength; i++) {
+      password += characterTypes.charAt(Math.floor(Math.random() * (characterTypes.length - 1)));
+  }
+    // will return password randomly created
+    return password;
+}
 
-
-  //var characterTypes = window.prompt("Are lowercase characters okay?")
-  //var characterTypes = window.prompt("Are uppercase characters okay?")
-  //var characterTypes = window.prompt("Are numeric characters okay? Could include '0123456789'")
-  //var characterTypes = window.prompt("Are special characters okay? Could include ' !#$%&'()*+,-./:;<=>?@[\]^_`{|}~'")
-
-
-
-
-// will return password randomly created
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
