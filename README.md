@@ -19,10 +19,10 @@ Password generator is JavaScript-heavy project with the main goal of producing s
 ## USER INSTRUCTIONS
 --------------------
 
-1. Click "Generate Password" button.
+1. Click "Generate Password" button
 2. Answer window prompts
 3. Copy generated password to clipboard
-4. Refresh screen to start the process over
+4. Click "Generate Password" button to create another password
 
 **View the application, here:** [Password Generator](https://grohtech.github.io/Password-Generator/ "Password Generator")
 

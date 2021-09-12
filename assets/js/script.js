@@ -9,7 +9,6 @@
     }
       // Correct response from user
     else {
-        characterLength = lengthSelected;
         window.alert("Great! Let's move on to the other questions.");
     }
     return lengthSelected;
